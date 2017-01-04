@@ -6,6 +6,7 @@
   "license": "MIT",
   "repository": "giuseppeg/styled-jsx-postcss",
   "files": [
+    "dist",
     "server.js",
     "babel.js",
     "style.js"
