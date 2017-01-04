@@ -29,6 +29,19 @@ Next, add `styled-jsx-postcss/babel` to `plugins` in your babel configuration:
 
 Also keep in mind that the PostCSS transformations run on `styled-jsx` transformed code.
 
+If you're already using `styled-jsx` and don't want to rename all the `import` and/or `require` you can define an alias with webpack (and other module bundlers I believe) like so:
+
+```js
+module.exports = {
+  resolve: {
+    alias: {
+      'styled-jsx': '@giuseppeg/styled-jsx-postcss'
+    }
+  },
+  // ...
+}
+```
+
 ## Plugins
 
 `styled-jsx-postcss` uses [`postcss-load-plugins`](https://www.npmjs.com/package/postcss-load-plugins) therefore you may want to refer to their docs to learn more about [adding plugins](https://www.npmjs.com/package/postcss-load-plugins#packagejson)
