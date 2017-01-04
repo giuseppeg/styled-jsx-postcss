@@ -1,6 +1,6 @@
 # styled-jsx-postcss
 
-[![Build Status](https://travis-ci.org/giuseppe/styled-jsx-postcss.svg?branch=master)](https://travis-ci.org/giuseppeg/styled-jsx-postcss)
+[![Build Status](https://travis-ci.org/giuseppeg/styled-jsx-postcss.svg?branch=master)](https://travis-ci.org/giuseppeg/styled-jsx-postcss)
 [![npm](https://img.shields.io/npm/v/styled-jsx-postcss.svg)](https://www.npmjs.com/package/styled-jsx-postcss)
 
 Use [PostCSS](https://github.com/postcss/postcss) with [styled-jsx](https://github.com/zeit/styled-jsx) 💥
