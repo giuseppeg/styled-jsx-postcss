@@ -1,0 +1,97 @@
+{
+  "name": "styled-jsx-postcss",
+  "version": "0.1.0",
+  "description": "Babel transform to run PostCSS on styled-jsx",
+  "files": [
+    "server.js",
+    "babel.js",
+    "style.js"
+  ],
+  "scripts": {
+    "prebuild": "mkdir -p dist",
+    "build": "babel src -d dist",
+    "prepublish": "npm run build",
+    "test": "ava && xo"
+  },
+  "keywords": [
+    "babel",
+    "styled-jsx",
+    "cssinjs",
+    "css in js",
+    "styled components",
+    "react",
+    "postcss",
+    "zeit"
+  ],
+  "author": "Giuseppe Gurgone",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-register": "^6.18.0",
+    "deasync": "^0.1.9",
+    "mz": "^2.6.0",
+    "postcss-color-function": "^2.0.1",
+    "xo": "^0.17.1"
+  },
+  "dependencies": {
+    "babel-traverse": "^6.21.0",
+    "babylon": "^6.14.1",
+    "postcss": "^5.2.8",
+    "postcss-load-plugins": "^2.1.0",
+    "styled-jsx": "^0.3.2"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-object-rest-spread",
+        "transform-async-to-generator"
+      ]
+    }
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs",
+      "transform-object-rest-spread",
+      "transform-async-to-generator"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-color-function": {}
+    }
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false,
+    "ignores": [
+      "lib/**",
+      "test/fixtures/**"
+    ],
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "rules": {
+      "eqeqeq": [
+        "error",
+        "always",
+        {
+          "null": "ignore"
+        }
+      ],
+      "no-eq-null": 0,
+      "import/no-unresolved": 0,
+      "new-cap": 0
+    }
+  }
+}
