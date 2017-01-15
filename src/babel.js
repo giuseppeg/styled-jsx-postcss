@@ -93,7 +93,7 @@ export default function ({types: t}) {
           let css
           let wait = true
           function resolved(result) {
-            css = result.message || result
+            css = result
             wait = false
           }
           Promise.all(processing)
@@ -101,8 +101,8 @@ export default function ({types: t}) {
             .catch(resolved)
           loopWhile(() => wait)
 
-          if (typeof css === 'string') {
-            throw new Error(css)
+          if (css instanceof Error) {
+            throw css
           }
 
           // remove placeholders

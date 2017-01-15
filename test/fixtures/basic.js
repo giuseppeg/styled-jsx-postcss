@@ -3,6 +3,6 @@ const color = 'red'
 export default () => (
   <div>
     <p>test</p>
-    <style jsx>{'p { color: color(red a(90%)) }'}</style>
+    <style jsx>{'p { img { display: block} color: color(red a(90%)) }'}</style>
   </div>
 )

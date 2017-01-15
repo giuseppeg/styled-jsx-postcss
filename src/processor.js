@@ -6,7 +6,8 @@ let processor
 
 export default async (src, options = {}) => {
   if (!plugins) {
-    plugins = await loader(options.env || process.env)
+    const pluginsInfo = await loader(options.env || process.env)
+    plugins = pluginsInfo.plugins
   }
   if (!processor) {
     processor = postcss(plugins)
