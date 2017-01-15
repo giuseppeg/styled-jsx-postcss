@@ -1,6 +1,6 @@
 {
   "name": "styled-jsx-postcss",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Babel transform to run PostCSS on styled-jsx",
   "author": "Giuseppe Gurgone",
   "license": "MIT",
