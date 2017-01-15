@@ -82,24 +82,18 @@ export default function ({types: t}) {
             // get the css
             .map(getCss)
             // process the css
-            .map(css => (
-              new Promise(async (resolve, reject) => {
-                try {
-                  const source = await processor(css.source)
-                  resolve({
-                    ...css,
-                    source
-                  })
-                } catch (err) {
-                  reject(err.message)
-                }
-              })
-            ))
+            .map(async css => {
+              const source = await processor(css.source)
+              return {
+                ...css,
+                source
+              }
+            })
 
           let css
           let wait = true
           function resolved(result) {
-            css = result
+            css = result.message || result
             wait = false
           }
           Promise.all(processing)
