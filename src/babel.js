@@ -1,5 +1,6 @@
 import {parse} from 'babylon'
 import jsx from 'styled-jsx/babel'
+import generate from 'babel-generator'
 import traverse from 'babel-traverse'
 import {loopWhile} from 'deasync'
 import processor from './processor'
@@ -17,20 +18,24 @@ export default function ({types: t}) {
       }
     }
 
-    const expressions = exprPath.get('expressions')
-
-    if (expressions.length === 0) {
+    if (node.expressions.length === 0) {
       return {
         path: exprPath,
         source: node.quasis[0].value.cooked
       }
     }
 
-    const replacements = getPlaceholders(expressions)
-    const source = addPlaceholders(
-      replacements,
-      exprPath.getSource().slice(1, -1)
-    )
+    let source = ''
+    const replacements = []
+    node.expressions.forEach((e, i) => {
+      const r = `___styledjsxexpression${i}___`
+      source += node.quasis[i].value.cooked + r
+      replacements.push({
+        replacement: r,
+        initial: `$\{${generate(e).code}}`
+      })
+    })
+    source += node.quasis[node.quasis.length - 1].value.cooked
 
     return {
       path: exprPath,
@@ -127,23 +132,6 @@ export default function ({types: t}) {
       }
     }
   }
-}
-
-function getPlaceholders(expressions) {
-  return expressions.map((e, id) => ({
-    replacement: `___styledjsxexpression${id}___`,
-    initial: `$\{${e.getSource()}}`
-  })).sort((a, b) => a.initial.length < b.initial.length)
-}
-
-function addPlaceholders(replacements, src) {
-  return replacements.reduce((src, currentReplacement) => {
-    src = src.replace(
-      currentReplacement.initial,
-      currentReplacement.replacement
-    )
-    return src
-  }, src)
 }
 
 function replacePlaceholders(replacements, src) {

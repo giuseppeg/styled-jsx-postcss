@@ -1,5 +1,3 @@
-const color = 'red'
-
 export default () => (
   <div>
     <p>test</p>
