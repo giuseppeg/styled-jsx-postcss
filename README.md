@@ -35,7 +35,7 @@ If you're already using `styled-jsx` and don't want to rename all the `import` a
 module.exports = {
   resolve: {
     alias: {
-      'styled-jsx': '@giuseppeg/styled-jsx-postcss'
+      'styled-jsx': 'styled-jsx-postcss'
     }
   },
   // ...
