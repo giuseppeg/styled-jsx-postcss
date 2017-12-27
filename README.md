@@ -5,8 +5,11 @@
 
 Use [PostCSS](https://github.com/postcss/postcss) with [styled-jsx](https://github.com/zeit/styled-jsx) 💥
 
+### 🎉 styled-jsx now supports plugins 🎉
+If you are using styled-jsx 2+, please direct your attention to https://github.com/giuseppeg/styled-jsx-plugin-postcss
+
 ### ⚠️ Development is frozen ⚠️
-Due to the lack of time I am not able to maintain this project anymore therefore this project would likely lock you to `styled-jsx ^0.5.7`. As always contributions are more than welcome and I can provide support! FWIW I submitted a proposal to make styled-jsx itself pluggable see zeit/styled-jsx/pull/190
+Due to the lack of time I am not able to maintain this project anymore therefore this project would likely lock you to `styled-jsx ^0.5.7`. As always contributions are more than welcome and I can provide support! FWIW I submitted a proposal to make styled-jsx itself pluggable see ~~zeit/styled-jsx/pull/190~~ https://github.com/zeit/styled-jsx/pull/291
 
 ## Usage
 
